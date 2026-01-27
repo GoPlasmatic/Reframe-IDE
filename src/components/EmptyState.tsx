@@ -45,6 +45,32 @@ export function EmptyState({ onOpenPackage, error }: EmptyStateProps) {
         </button>
 
         <div className="mt-8 text-sm text-gray-500 dark:text-gray-400">
+          <p className="font-medium mb-2">Getting Started:</p>
+          <ol className="text-left space-y-2 mb-4">
+            <li className="flex gap-2">
+              <span className="font-semibold text-gray-600 dark:text-gray-300">1.</span>
+              <span>
+                Download the sample CBPR+ package:{' '}
+                <a
+                  href="https://github.com/GoPlasmatic/reframe-package-swift-cbpr/releases/download/v2.1.3/reframe-swift-cbpr-v2.1.3.zip"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 dark:text-blue-400 hover:underline"
+                >
+                  reframe-swift-cbpr-v2.1.3.zip
+                </a>
+              </span>
+            </li>
+            <li className="flex gap-2">
+              <span className="font-semibold text-gray-600 dark:text-gray-300">2.</span>
+              <span>Extract the ZIP file to a folder</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="font-semibold text-gray-600 dark:text-gray-300">3.</span>
+              <span>Click "Open Package Folder" above and select the extracted folder</span>
+            </li>
+          </ol>
+
           <p className="font-medium mb-2">Expected package structure:</p>
           <pre className="text-left bg-gray-100 dark:bg-gray-800 p-3 rounded text-xs text-gray-700 dark:text-gray-300">
 {`package-folder/

@@ -10,8 +10,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@goplasmatic/dataflow-ui": "^2.0.11",
-    "@goplasmatic/reframe-wasm": "^3.1.8",
+    "@goplasmatic/dataflow-ui": "^2.0.13",
+    "@goplasmatic/reframe-wasm": "^3.1.9",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

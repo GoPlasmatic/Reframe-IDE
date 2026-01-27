@@ -1,1 +1,8 @@
-export { ReframeEngineAdapter, reframeEngineFactory, initializeWasm } from './ReframeEngineAdapter';
+export {
+  ReframeEngineAdapter,
+  reframeEngineFactory,
+  initializeWasm,
+  generateMessage,
+  validateMessage,
+  resetSharedEngine,
+} from './ReframeEngineAdapter';
