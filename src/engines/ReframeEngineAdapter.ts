@@ -180,8 +180,28 @@ export class ReframeEngineAdapter implements DataflowEngine {
       ? payload.payload
       : JSON.stringify(payload.payload);
 
-    const traceJson = await this.engine.process_with_trace(rawPayload);
+    // Detect workflow type from the path prefix (e.g., "validate/...", "generate/...")
+    const workflowType = this.getWorkflowType();
+    let traceJson: string;
+    switch (workflowType) {
+      case 'validate':
+        traceJson = await this.engine.validate_with_trace(rawPayload);
+        break;
+      case 'generate':
+        traceJson = await this.engine.generate_with_trace(rawPayload);
+        break;
+      default:
+        traceJson = await this.engine.process_with_trace(rawPayload);
+        break;
+    }
     return JSON.parse(traceJson) as ExecutionTrace;
+  }
+
+  private getWorkflowType(): 'transform' | 'validate' | 'generate' {
+    const path = this.workflows[0]?.path ?? '';
+    if (path.startsWith('validate/') || path.startsWith('validate\\')) return 'validate';
+    if (path.startsWith('generate/') || path.startsWith('generate\\')) return 'generate';
+    return 'transform';
   }
 
   dispose(): void {
